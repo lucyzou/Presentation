@@ -1,0 +1,51 @@
+---
+title       : Presentations about my prediction App
+subtitle    : A app for wage prediction
+author      : ZouXia
+job         : Student
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : [mathjax]            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Description of the App
+
+It is a simple App that can help people to predict their wage according to their age,education level,marriage status and type of job you have.  The rationale behind it come from the meachine learning. And the training data is Wage dataset come from ISLR package. And the method use to fit the data is lm
+
+--- .class #2 
+
+## Prediction Model
+```{r}
+library(ISLR)
+library(caret)
+data(Wage)
+modelfit<-train(wage~age+education+maritl+jobclass,method="lm",data = Wage)
+
+```
+
+--- .class #3
+
+
+## Summary of the Model
+```{r}
+summary(modelfit)
+```
+
+--- .class #4
+
+## Predictos
+   As mentioned above, the predictors include your age,education level,marriage status and type of job you have.
+More specifically.
+
+ 1.Age is the age of the workers.
+
+ 2.Education is a factor level it include  1. < HS Grad 2. HS Grad3. Some College 4. College Grad and 5. Advanced Degree. 
+
+ 3.Maritl is also a factor include 1. Never Married 2. Married 3. Widowed 4. Divorced and 5. Separated.
+
+ 4.Jobclass is a factor include  1. Industrial and 2. Information.
+
+--- .class #5

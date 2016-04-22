@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Presentations about my prediction App</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Presentations about my prediction App">
+  <meta name="author" content="ZouXia">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Presentations about my prediction App</h1>
+    <h2>A app for wage prediction</h2>
+    <p>ZouXia<br/>Student</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Description of the App</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>It is a simple App that can help people to predict their wage according to their age,education level,marriage status and type of job you have.  The rationale behind it come from the meachine learning. And the training data is Wage dataset come from ISLR package. And the method use to fit the data is lm</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="2" style="background:;">
+  <hgroup>
+    <h2>Prediction Model</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">library(ISLR)
+library(caret)
+data(Wage)
+modelfit&lt;-train(wage~age+education+maritl+jobclass,method=&quot;lm&quot;,data = Wage)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="3" style="background:;">
+  <hgroup>
+    <h2>Summary of the Model</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">summary(modelfit)
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = .outcome ~ ., data = dat)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -109.630  -19.235   -3.303   14.543  217.670 
+## 
+## Coefficients:
+##                               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)                   56.88532    3.19666  17.795  &lt; 2e-16 ***
+## age                            0.30541    0.06272   4.869 1.18e-06 ***
+## `education2. HS Grad`         11.20924    2.43099   4.611 4.18e-06 ***
+## `education3. Some College`    23.43119    2.57044   9.116  &lt; 2e-16 ***
+## `education4. College Grad`    37.89354    2.57429  14.720  &lt; 2e-16 ***
+## `education5. Advanced Degree` 61.45169    2.83020  21.713  &lt; 2e-16 ***
+## `maritl2. Married`            18.64946    1.75936  10.600  &lt; 2e-16 ***
+## `maritl3. Widowed`             1.76970    8.26158   0.214 0.830399    
+## `maritl4. Divorced`            5.16183    2.97367   1.736 0.082694 .  
+## `maritl5. Separated`          12.36977    5.00287   2.473 0.013471 *  
+## `jobclass2. Information`       4.73709    1.35342   3.500 0.000472 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 35.14 on 2989 degrees of freedom
+## Multiple R-squared:  0.2932, Adjusted R-squared:  0.2909 
+## F-statistic:   124 on 10 and 2989 DF,  p-value: &lt; 2.2e-16
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="4" style="background:;">
+  <hgroup>
+    <h2>Predictos</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>As mentioned above, the predictors include your age,education level,marriage status and type of job you have.
+More specifically.</p>
+
+<p>1.Age is the age of the workers.</p>
+
+<p>2.Education is a factor level it include  1. &lt; HS Grad 2. HS Grad3. Some College 4. College Grad and 5. Advanced Degree. </p>
+
+<p>3.Maritl is also a factor include 1. Never Married 2. Married 3. Widowed 4. Divorced and 5. Separated.</p>
+
+<p>4.Jobclass is a factor include  1. Industrial and 2. Information.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="5" style="background:;">
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Description of the App'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Prediction Model'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Summary of the Model'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Predictos'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='NA'>
+         5
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
